@@ -3,7 +3,11 @@
 
 site 'http://community.opscode.com/api/v1'
 
+cookbook 'git'
+cookbook 'sqlite'
+cookbook 'mysql'
 cookbook 'memcached'
+cookbook 'postgresql'
 
 # cookbook 'chef-client'
 
@@ -11,7 +15,3 @@ cookbook 'memcached'
 
 # cookbook 'rvm',
 #   :git => 'https://github.com/fnichol/chef-rvm'
-
-# cookbook 'postgresql',
-#   :git => 'https://github.com/findsyou/cookbooks',
-#   :ref => 'postgresql-improvements'
