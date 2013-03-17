@@ -6,7 +6,7 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 3000, 3000
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "chef/cookbooks"
+    chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
     chef.roles_path     = "chef/roles"
     chef.data_bags_path = "chef/data_bags"
 
