@@ -11,5 +11,12 @@ Vagrant::Config.run do |config|
     chef.data_bags_path = "chef/data_bags"
 
     chef.add_role "rails-development"
+    chef.json = {
+        :mysql => {
+          :server_root_password   => '',
+          :server_debian_password => '',
+          :server_repl_password   => ''
+        }
+      }
   end
 end
