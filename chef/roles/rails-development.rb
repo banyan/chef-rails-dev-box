@@ -8,5 +8,6 @@ run_list(
   "recipe[mysql::ruby]",
   "recipe[mysql::server]",
   "recipe[postgresql]",
-  "recipe[memcached]"
+  "recipe[memcached]",
+  "recipe[nodejs]"
 )

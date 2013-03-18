@@ -8,6 +8,7 @@ cookbook 'sqlite'
 cookbook 'mysql'
 cookbook 'memcached'
 cookbook 'postgresql'
+cookbook 'nodejs'
 
 # cookbook 'chef-client'
 
