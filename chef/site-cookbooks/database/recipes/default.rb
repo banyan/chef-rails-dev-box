@@ -13,26 +13,28 @@ mysql_connection_info = {
   :password => node['mysql']['server_root_password']
 }
 
+databases = %w(activerecord_unittest activerecord_unittest2)
+
+databases.each do |database|
+  mysql_database database do
+    connection mysql_connection_info
+    action :create
+  end
+end
+
 mysql_database_user 'rails' do
   connection mysql_connection_info
   password ''
   action :create
 end
 
-mysql_database_user 'rails' do
-  connection mysql_connection_info
-  password ''
-  database_name 'activerecord_unittest'
-  host 'localhost'
-  privileges [:all]
-  action :grant
-end
-
-mysql_database_user 'rails' do
-  connection mysql_connection_info
-  password ''
-  database_name 'activerecord_unittest2'
-  host 'localhost'
-  privileges [:all]
-  action :grant
+databases.each do |database|
+  mysql_database_user 'rails' do
+    connection mysql_connection_info
+    password ''
+    database_name database
+    host 'localhost'
+    privileges [:all]
+    action :grant
+  end
 end

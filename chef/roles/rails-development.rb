@@ -9,5 +9,6 @@ run_list(
   "recipe[mysql::server]",
   "recipe[postgresql::server]",
   "recipe[memcached]",
-  "recipe[nodejs]"
+  "recipe[nodejs]",
+  "recipe[database]",
 )
