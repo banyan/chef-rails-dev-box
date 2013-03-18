@@ -29,6 +29,7 @@ SITE
     openssl (1.0.2)
     postgresql (2.2.2)
       openssl (>= 0.0.0)
+    ruby_build (0.7.2)
     runit (1.1.0)
       build-essential (>= 0.0.0)
     sqlite (1.0.0)
@@ -37,6 +38,13 @@ SITE
     xfs (1.1.0)
     yum (2.1.0)
 
+GIT
+  remote: git://github.com/fnichol/chef-rbenv.git
+  ref: v0.7.2
+  sha: f2b53292e810dd2b43f6121f9958f5f29979dcb1
+  specs:
+    rbenv (0.7.2)
+
 DEPENDENCIES
   database (>= 0)
   git (>= 0)
@@ -44,5 +52,7 @@ DEPENDENCIES
   mysql (>= 0)
   nodejs (>= 0)
   postgresql (>= 0)
+  rbenv (>= 0)
+  ruby_build (>= 0)
   sqlite (>= 0)
 

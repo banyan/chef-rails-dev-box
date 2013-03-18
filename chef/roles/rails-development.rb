@@ -10,5 +10,8 @@ run_list(
   "recipe[postgresql::server]",
   "recipe[memcached]",
   "recipe[nodejs]",
+  "recipe[ruby_build]",
+  "recipe[rbenv::system]",
+  "recipe[rbenv::vagrant]",
   "recipe[database]",
 )
