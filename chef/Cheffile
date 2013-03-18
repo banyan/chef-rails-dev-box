@@ -9,6 +9,7 @@ cookbook 'mysql'
 cookbook 'memcached'
 cookbook 'postgresql'
 cookbook 'nodejs'
+cookbook 'database'
 
 # cookbook 'chef-client'
 
