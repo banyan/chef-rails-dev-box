@@ -1,5 +1,15 @@
-execute "apt_update" do
+execute "apt-get update" do
  command "apt-get update"
+ action :run
+end
+
+execute "apt-get upgrade" do
+ command "apt-get -y upgrade"
+ action :run
+end
+
+execute "apt-get dist-upgrade" do
+ command "apt-get -y dist-upgrade"
  action :run
 end
 
