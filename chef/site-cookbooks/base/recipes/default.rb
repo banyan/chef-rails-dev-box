@@ -3,15 +3,16 @@ execute "apt-get update" do
  action :run
 end
 
-execute "apt-get upgrade" do
- command "apt-get -y upgrade"
- action :run
-end
+# when run this, it will be crash.. :S
+# execute "apt-get upgrade" do
+ # command "apt-get -y upgrade"
+ # action :run
+# end
 
-execute "apt-get dist-upgrade" do
- command "apt-get -y dist-upgrade"
- action :run
-end
+# execute "apt-get dist-upgrade" do
+ # command "apt-get -y dist-upgrade"
+ # action :run
+# end
 
 packages = %w(
   curl
