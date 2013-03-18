@@ -16,6 +16,11 @@ Vagrant::Config.run do |config|
           :server_root_password   => '',
           :server_debian_password => '',
           :server_repl_password   => ''
+        },
+        "postgresql" => {
+          "password" => {
+            "postgres" => ""
+          }
         }
       }
   end
