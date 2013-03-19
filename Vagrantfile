@@ -27,8 +27,7 @@ Vagrant::Config.run do |config|
           "rubies" => [ "2.0.0-p0" ],
           "gems" => {
             "2.0.0-p0" => [
-              { 'name' => 'bundler' },
-              { 'name' => 'pg' }
+              { 'name' => 'bundler' }
             ]
           }
         }
