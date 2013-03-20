@@ -21,3 +21,11 @@ directory "/usr/local/rbenv" do
   recursive true
   action :create
 end
+
+git "/vagrant/rails" do
+   repository "git://github.com/rails/rails.git"
+   reference "master"
+   action :checkout
+   user  "vagrant"
+   group "vagrant"
+end
