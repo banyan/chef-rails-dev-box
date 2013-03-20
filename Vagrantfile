@@ -1,11 +1,10 @@
 Vagrant::Config.run do |config|
   config.vm.box       = "ubuntu-1204"
   config.vm.box_url   = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-1204-x64.box'
-  config.vm.host_name = 'rails-dev-box'
+  config.vm.host_name = 'chef-rails-dev-box'
 
-  config.vm.forward_port 3000, 3000
-  config.vm.network :hostonly, "33.33.33.00"
-  config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
+  config.vm.network :hostonly, "192.168.30.00"
+  config.vm.share_folder("v-root", "/vagrant", ".", "nfs" => true)
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
