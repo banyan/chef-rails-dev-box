@@ -29,3 +29,11 @@ git "/vagrant/rails" do
    user  "vagrant"
    group "vagrant"
 end
+
+rbenv_script "migrate_rails_database" do
+  rbenv_version "2.0.0-p0"
+  user          "vagrant"
+  group         "vagrant"
+  cwd           "/vagrant/rails"
+  code          %{bundle exec rake db:migrate}
+end
