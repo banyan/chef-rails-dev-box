@@ -9,10 +9,10 @@ run_list(
   "recipe[mysql::server]",
   "recipe[postgresql::server]",
   "recipe[memcached]",
-  "recipe[nodejs]",
+  "recipe[nodejs::install_from_package]",
   "recipe[ruby_build]",
   "recipe[rbenv::system]",
   "recipe[rbenv::vagrant]",
   "recipe[database]",
-  "recipe[postinstall]",
+  "recipe[postinstall]"
 )
