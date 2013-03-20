@@ -21,29 +21,4 @@ bash "chgrp and chmod" do
     chgrp -R rbenv rbenv
     chmod -R g+rwxX rbenv
   EOH
-  not_if { ::File::stat("/usr/local/rbenv").gid == 1100 }
-end
-
-# git "/vagrant/rails" do
-   # repository "git://github.com/rails/rails.git"
-   # reference "master"
-   # action :checkout
-   # user  "vagrant"
-   # group "vagrant"
-# end
-
-rbenv_script "migrate_rails_database" do
-  rbenv_version "2.0.0-p0"
-  user          "vagrant"
-  group         "vagrant"
-  cwd           "/vagrant/rails"
-  code          %{bundle install}
-end
-
-rbenv_script "migrate_rails_database" do
-  rbenv_version "2.0.0-p0"
-  user          "vagrant"
-  group         "vagrant"
-  cwd           "/vagrant/rails"
-  code          %{bundle exec rake db:create}
 end
