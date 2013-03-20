@@ -1,12 +1,15 @@
 # chef-rails-dev-box
 
-A virtual machine for Ruby on Rails Core Development
+## Introduction
 
+This project automates the setup of a development environment for Ruby on Rails core development.
 This is port of [rails-dev-box](https://github.com/rails/rails-dev-box) using by chef.
 
-## Caveats
+## Requirements
 
-Current status is WIP.
+* [VirtualBox](https://www.virtualbox.org)
+
+* [Vagrant](http://vagrantup.com)
 
 ## Setup
 
