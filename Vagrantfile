@@ -4,6 +4,8 @@ Vagrant::Config.run do |config|
   config.vm.host_name = 'rails-dev-box'
 
   config.vm.forward_port 3000, 3000
+  config.vm.network :hostonly, "33.33.33.00"
+  config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
