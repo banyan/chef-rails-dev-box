@@ -14,13 +14,10 @@ group "rbenv" do
   append true
 end
 
-bash "chgrp and chmod" do
-  user "root"
-  cwd "/usr/local"
-  code <<-EOH
-    chgrp -R rbenv rbenv
-    chmod -R g+rwxX rbenv
-  EOH
-  not_if { ::File::stat("/usr/local/rbenv").gid == 1100 }
+directory "/usr/local/rbenv" do
+  owner "root"
+  group "rbenv"
+  mode "0755"
+  recursive true
+  action :create
 end
-
