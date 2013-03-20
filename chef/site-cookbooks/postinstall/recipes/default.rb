@@ -14,20 +14,30 @@ group "rbenv" do
   append true
 end
 
-directory "/usr/local/rbenv" do
-  owner "root"
-  group "rbenv"
-  mode "0755"
-  recursive true
-  action :create
+bash "chgrp and chmod" do
+  user "root"
+  cwd "/usr/local"
+  code <<-EOH
+    chgrp -R rbenv rbenv
+    chmod -R g+rwxX rbenv
+  EOH
+  not_if { ::File::stat("/usr/local/rbenv").gid == 1100 }
 end
 
-git "/vagrant/rails" do
-   repository "git://github.com/rails/rails.git"
-   reference "master"
-   action :checkout
-   user  "vagrant"
-   group "vagrant"
+# git "/vagrant/rails" do
+   # repository "git://github.com/rails/rails.git"
+   # reference "master"
+   # action :checkout
+   # user  "vagrant"
+   # group "vagrant"
+# end
+
+rbenv_script "migrate_rails_database" do
+  rbenv_version "2.0.0-p0"
+  user          "vagrant"
+  group         "vagrant"
+  cwd           "/vagrant/rails"
+  code          %{bundle install}
 end
 
 rbenv_script "migrate_rails_database" do
@@ -35,5 +45,5 @@ rbenv_script "migrate_rails_database" do
   user          "vagrant"
   group         "vagrant"
   cwd           "/vagrant/rails"
-  code          %{bundle exec rake db:migrate}
+  code          %{bundle exec rake db:create}
 end
