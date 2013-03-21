@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant::Config.run do |config|
   config.vm.box       = "ubuntu-1204"
   config.vm.box_url   = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-1204-x64.box'
@@ -8,8 +11,8 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
-    chef.roles_path     = "chef/roles"
-    chef.data_bags_path = "chef/data_bags"
+    chef.roles_path     = [[:host, "chef/roles"]]
+    chef.data_bags_path = [[:host, "chef/data_bags"]]
 
     chef.add_role "rails-development"
     chef.json = {
