@@ -15,10 +15,11 @@ This is port of [rails-dev-box](https://github.com/rails/rails-dev-box) using by
 Building the virtual machine is this easy:
 
 ```zsh
-host $ gem install librarian
 host $ git clone git@github.com:banyan/chef-rails-dev-box.git
-host $ cd chef-rails-dev-box/chef
-host $ librarian-chef install
+host $ cd chef-rails-dev-box
+host $ bundle install
+host $ cd chef
+host $ bundle exec librarian-chef install
 host $ cd ../
 host $ vagrant up
 ```
