@@ -42,7 +42,7 @@ vagrant@chef-rails-dev-box:~$
 When vagrant bootup, shared folder is mounted by using NFS.
 NFS is not supported on Windows hosts. (See [document](http://docs-v1.vagrantup.com/v1/docs/nfs.html))
 
-So you need to edit Vatrantfile to comment out.
+Comment this line if you are Windows user.
 
 ```diff
 -  config.vm.share_folder("v-root", "/vagrant", ".", "nfs" => true)
