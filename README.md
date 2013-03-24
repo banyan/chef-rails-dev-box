@@ -9,6 +9,7 @@ This is port of [rails-dev-box](https://github.com/rails/rails-dev-box) using by
 
 * [VirtualBox](https://www.virtualbox.org)
 * [Vagrant](http://vagrantup.com)
+ * version required [v1.1.2](http://downloads.vagrantup.com/tags/v1.1.2) later.
 
 ## How To Build The Virtual Machine
 
