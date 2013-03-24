@@ -44,25 +44,37 @@ end
 
 # postgresql
 
-# postgresql_connection_info = {
-  # :host     => "localhost",
-  # :password => node['postgresql']['password']['postgres']
-# }
+template "#{node[:postgresql][:dir]}/pg_hba.conf" do
+  source "pg_hba.conf.erb"
+  notifies :restart, "service[postgresql]", :immediately
+  # cookbook 'gswd'
+end
 
-# databases.each do |database|
-  # postgresql_database database do
-    # connection postgresql_connection_info
-    # encoding "utf8"
-    # action :create
-  # end
-# end
+postgresql_connection_info = {
+  :host     => "localhost",
+  :password => node['postgresql']['password']['postgres']
+}
 
-# postgresql_database_user 'rails' do
-  # connection postgresql_connection_info
-  # action :create
-# end
+databases.each do |database|
+  postgresql_database database do
+    connection postgresql_connection_info
+    encoding "utf8"
+    action :create
+  end
+end
 
-# postgresql_database_user 'vagrant' do
-  # connection postgresql_connection_info
-  # action :create
-# end
+postgresql_database_user 'vagrant' do
+  connection postgresql_connection_info
+  privileges [:Superuser]
+  password ""
+  action :create
+end
+
+databases.each do |database|
+  postgresql_database_user 'vagrant' do
+    connection postgresql_connection_info
+    database_name database
+    privileges [:all]
+    action :grant
+  end
+end

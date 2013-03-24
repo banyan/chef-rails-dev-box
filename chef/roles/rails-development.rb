@@ -7,6 +7,7 @@ run_list(
   "recipe[mysql::client]",
   "recipe[mysql::ruby]",
   "recipe[mysql::server]",
+  "recipe[postgresql::ruby]",
   "recipe[postgresql::server]",
   "recipe[memcached]",
   "recipe[nodejs::install_from_package]",
