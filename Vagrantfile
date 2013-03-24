@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  config.vm.box       = "ubuntu-1204"
-  config.vm.box_url   = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-1204-x64.box'
+  config.vm.box       = 'precise32'
+  config.vm.box_url   = 'http://files.vagrantup.com/precise32.box'
   config.vm.host_name = 'chef-rails-dev-box'
 
   config.vm.network :hostonly, "192.168.30.00"
