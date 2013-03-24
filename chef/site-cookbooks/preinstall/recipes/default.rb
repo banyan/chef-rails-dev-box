@@ -1,7 +1,7 @@
-execute "apt-get update" do
- command "apt-get update"
- action :run
-end
+# execute "apt-get update" do
+ # command "apt-get update"
+ # action :run
+# end
 
 # when run this, it will be crash.. :S
 # execute "apt-get upgrade" do

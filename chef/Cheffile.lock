@@ -46,6 +46,7 @@ GIT
     rbenv (0.7.2)
 
 DEPENDENCIES
+  apt (>= 0)
   database (>= 0)
   git (>= 0)
   memcached (>= 0)
