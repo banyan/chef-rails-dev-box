@@ -57,7 +57,9 @@ postgresql_connection_info = {
 databases.each do |database|
   postgresql_database database do
     connection postgresql_connection_info
-    encoding "utf8"
+    encoding "UTF8"
+    template "template0"
+    collation "en_US.UTF-8"
     action :create
   end
 end
