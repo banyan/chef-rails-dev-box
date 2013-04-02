@@ -47,7 +47,6 @@ end
 template "#{node[:postgresql][:dir]}/pg_hba.conf" do
   source "pg_hba.conf.erb"
   notifies :restart, "service[postgresql]", :immediately
-  # cookbook 'gswd'
 end
 
 postgresql_connection_info = {
