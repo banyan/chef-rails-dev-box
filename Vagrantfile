@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
   config.vm.host_name = 'chef-rails-dev-box'
 
   config.vm.network :hostonly, "192.168.30.00"
-  config.vm.share_folder("v-root", "/vagrant", ".", "nfs" => true)
+  config.vm.share_folder("vagrant-root", "/vagrant", ".", "nfs" => true)
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
